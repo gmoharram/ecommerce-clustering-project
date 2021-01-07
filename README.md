@@ -10,7 +10,9 @@ The Data Set is an excel sheet where each row represents an item . The for this 
 
 ![baskets](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/2021-01-07.png  "Obtained 'baskets' File")
 
-In total we find 25900 different invoices and 4070 different items. However, one of the items has the Stock Code 'D' which signifies that a discount code was used. After dropping the discount column we generate a 25900 by 4069 pandas dataframe. Throughout this project we will save some generated variables in .pckl files using the [pickle module](https://docs.python.org/3/library/pickle.html) which serializes python objects. While this generates relatively large files, it saves massive amounts of processing time.  
+In total we find 25900 different invoices and 4071 different items. However, one of the items has the Stock Code 'D' which signifies that a discount code was used. After dropping the discount column and invoice Number column we generate a 25900 by 4069 pandas dataframe. Throughout this project we will save some generated variables in .pckl files using the [pickle module](https://docs.python.org/3/library/pickle.html) which serializes python objects. While this generates relatively large files, it saves massive amounts of processing time. This process is performed by [SaveInputData.py](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/SaveInputData.py).
+
+## Data Exploration
 
 ## Clustering 
 
