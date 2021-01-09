@@ -5,6 +5,7 @@ Created on Thu Jan  7 03:03:23 2021
 @author: gmoha
 """
 import pandas as pd 
+import numpy as np
 import pickle
 
 #Import data and remove invoice number info and Discount Column
@@ -28,6 +29,17 @@ with open('pckl_variables/loaded_baskets_df.pckl', 'rb') as f:
    
 #Create numpy feature matrix out of df
 X = df.to_numpy()
+
+
+## check if there are items with negative quantities
+N = X < 0
+loc = np.argwhere(N == True)
+# creates array with rows where there are negative quantities and the corresponding counts 
+negative_indices = np.column_stack(np.unique(loc[:,0], return_counts = True))
+#Only keep rows with exclusively positive quantities
+X= np.delete(X, negative_indices[:,0], axis = 0)
+
+
 
 #Save Feature Matrix to .pckl file for future use
 with open('pckl_variables/FeatureMatrix.pckl', 'wb') as f:
