@@ -11,13 +11,17 @@ The Data Set is an excel sheet where each row represents an item . The for this 
 ![baskets](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/2021-01-07.png  "Obtained 'baskets' File")
 
 
-### Discount Code
+#### Discount Code
 
 In total we find 25900 different invoices and 4071 different items. However, one of the items has the Stock Code 'D' which signifies that a discount code was used. After dropping the discount column and invoice Number column we generate a 25900 by 4069 pandas dataframe. Throughout this project we will save some generated variables in .pckl files using the [pickle module](https://docs.python.org/3/library/pickle.html) which serializes python objects. While this generates relatively large files, it saves massive amounts of processing time. This process is performed by [SaveInputData.py](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/SaveInputData.py).
 
-### Negative Quantities
+#### Negative Quantities
 
 While trying to compute the average number of different items purchased I suspected that there might be negative quantity values in our data set. That was indeed the case. There were 5108 unique invoice numbers that contained negative quantities. While most of these only had one stock item for which that was true, there were others with up to 101 such cases. It is not stated at the data source, how these values are to be interpreted. One interpretation could be that those items were returned at purchase. While we could change those values to zero, I chose to ignore those invoice numbers, leaving us with 20792 data points. 
+
+#### Miscellaneous
+
+Additionally, there was one item (Stock Code '23843') that was purchased a single time at an exorbitant quantity of 80995 and then immediately thereafter returned. I noticed this while computing the mean quantities purchased of each item. That item column along with the belonging invoice number row was dicarded to avoid shifting a centroid in its direction. 
 
 ## Data Exploration
 
