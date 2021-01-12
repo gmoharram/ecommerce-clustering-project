@@ -19,6 +19,10 @@ In total we find 25900 different invoices and 4071 different items. However, one
 
 While trying to compute the average number of different items purchased I suspected that there might be negative quantity values in our data set. That was indeed the case. There were 5108 unique invoice numbers that contained negative quantities. While most of these only had one stock item for which that was true, there were others with up to 101 such cases. It is not stated at the data source, how these values are to be interpreted. One interpretation could be that those items were returned at purchase. While we could change those values to zero, I chose to ignore those invoice numbers, leaving us with 20792 data points. 
 
+#### Never Purchased Items
+
+Furthermore, we delete all empty columns. These items have never been purchased and need not be considered in our centroid search. After performing that step we are left with 3941 columns. 
+
 #### Miscellaneous
 
 Additionally, there was one item (Stock Code '23843') that was purchased a single time at an exorbitant quantity of 80995 and then immediately thereafter returned. I noticed this while computing the mean quantities purchased of each item. That item column along with the belonging invoice number row was dicarded to avoid shifting a centroid in its direction. 
