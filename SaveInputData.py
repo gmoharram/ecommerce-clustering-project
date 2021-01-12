@@ -44,6 +44,17 @@ X= np.delete(X, negative_indices[:,0], axis = 0)
 X = np.delete(X, 20756, axis = 0)
 X = np.delete(X, 4068, axis = 1)
 
+
+#Remove empty columns
+empty = np.zeros(0, dtype = int)
+for i in range(X.shape[1]):
+    if np.count_nonzero(X[:,i]) == 0:
+        empty = np.append(empty, i)
+X = np.delete(X, empty, axis = 1)
+
+
+
+
 #Save Feature Matrix to .pckl file for future use
 with open('pckl_variables/FeatureMatrix.pckl', 'wb') as f:
     pickle.dump(X, f)
