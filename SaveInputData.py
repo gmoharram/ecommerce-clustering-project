@@ -40,6 +40,9 @@ negative_indices = np.column_stack(np.unique(loc[:,0], return_counts = True))
 X= np.delete(X, negative_indices[:,0], axis = 0)
 
 
+##Remove item that has only been purchased once at a quantity of 80995 and belonging invoice row 
+X = np.delete(X, 20756, axis = 0)
+X = np.delete(X, 4068, axis = 1)
 
 #Save Feature Matrix to .pckl file for future use
 with open('pckl_variables/FeatureMatrix.pckl', 'wb') as f:
