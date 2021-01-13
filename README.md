@@ -9,7 +9,7 @@ We will be using the numpy, pandas, scikit-learn, matplotlib and pickle librarie
 The Data Set is an excel sheet where each row represents an item . The for this project relevant columns are the "Stock Code", "Quantity"and "InvoiceNo" columns. We aim to create a matrix, where each row represents an Invoice Number and all Stock Codes are assigned a column. The cell values will be the Quantity information. In the following we will refer to each row as a "basket". This is performed with the [dataPrep.py](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/dataPrep.py) script. A screenshot of the obtained file is shown below. 
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/2021-01-07.png0">
+  <img width="450" height="350" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/2021-01-07.png">
 </p>
 
 
@@ -40,8 +40,8 @@ It might be helpful to get an idea as to how big customers baskets can be. Speci
 A quick analysis shows that while the mean amount of different items purchased is at around 25, the median is at 15. The bar plots below depicts the number of invoices with a given number of different items. While the first one takes all data points into account, the second zooms into the item counts with significant number of invoices. 
 
 <p align="center">
-  <img width="250" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistribution.png">
-  <img width="250" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistributionMiddle.png">
+  <img width="400" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistribution.png">
+  <img width="400" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistributionMiddle.png">
 </p>
 
 
@@ -51,7 +51,7 @@ The mean quantities usually purchased of each item gives us an idea of where to 
 
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/MeanQuantities.png">
+  <img width="450" height="350" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/MeanQuantities.png">
 </p>
 
 ## Clustering 
