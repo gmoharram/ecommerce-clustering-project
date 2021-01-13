@@ -31,18 +31,21 @@ Additionally, there was one item (Stock Code '23843') that was purchased a singl
 
 After doing the initital cleaning we now aim to understand our data better. This gives us a chance to spot any problems with our data set. Some of the data cleaning above was based on what I came across while exploring the data. It also gives us an idea of what we expect to see once our data is fitted, which is an important way to understand what outcomes are sensible. The exploration was performed with the [DataExploration.py](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DataExploration.py) script.
 
-### Basket Sizes
+#### Basket Sizes
 
 It might be helpful to get an idea as to how big customers baskets can be. Specifically, we'll quickly look at how many different items are typically purchased together and what kind of quantities they are purchased at. 
 
 A quick analysis shows that while the mean amount of different items purchased is at around 25, the median is at 15. The bar plots below depicts the number of invoices with a given number of different items. While the first one takes all data points into account, the second zooms into the item counts with significant number of invoices. 
 
+       All Baskets         |      Biggest baskets
+:-------------------------:|:-------------------------:
+![Bar1](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistribution.png "All Data Bar Plot")  |  ![Bar2](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistributionMiddle.png "Selected Data Bar Plot")
 
-![Bar1](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistribution.png "All Data Bar Plot")
+#### Mean Quantities
 
+The mean quantities usually purchased of each item gives us an idea of where to realistically expect our centroids to be. For it to be a useful number we only include non-zero numbers when taking the mean. However, the feature matrix will be normalized before running the clustering algorithm and so those numbers (and more importantly how they compare to eachother) should have no effect on the centroid location and therefore only serves as a metric for comparison. 
 
-![Bar2](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistributionMiddle.png "Selected Data Bar Plot")
-
+![Mean Quantities](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/MeanQuantities.png "Mean Quantities")
 
 ## Clustering 
 
