@@ -8,7 +8,9 @@ We will be using the numpy, pandas, scikit-learn, matplotlib and pickle librarie
 
 The Data Set is an excel sheet where each row represents an item . The for this project relevant columns are the "Stock Code", "Quantity"and "InvoiceNo" columns. We aim to create a matrix, where each row represents an Invoice Number and all Stock Codes are assigned a column. The cell values will be the Quantity information. In the following we will refer to each row as a "basket". This is performed with the [dataPrep.py](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/dataPrep.py) script. A screenshot of the obtained file is shown below. 
 
-![baskets](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/2021-01-07.png  "Obtained 'baskets' File")
+<p align="center">
+  <img width="460" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/2021-01-07.png0">
+</p>
 
 
 #### Discount Code
@@ -37,15 +39,20 @@ It might be helpful to get an idea as to how big customers baskets can be. Speci
 
 A quick analysis shows that while the mean amount of different items purchased is at around 25, the median is at 15. The bar plots below depicts the number of invoices with a given number of different items. While the first one takes all data points into account, the second zooms into the item counts with significant number of invoices. 
 
-       All Baskets         |      Biggest baskets
-:-------------------------:|:-------------------------:
-![Bar1](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistribution.png "All Data Bar Plot")  |  ![Bar2](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistributionMiddle.png "Selected Data Bar Plot")
+<p align="center">
+  <img width="250" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistribution.png">
+  <img width="250" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/DifferentDistributionMiddle.png">
+</p>
+
 
 #### Mean Quantities
 
 The mean quantities usually purchased of each item gives us an idea of where to realistically expect our centroids to be. For it to be a useful number we only include non-zero numbers when taking the mean. However, the feature matrix will be normalized before running the clustering algorithm and so those numbers (and more importantly how they compare to eachother) should have no effect on the centroid location and therefore only serves as a metric for comparison. 
 
-![Mean Quantities](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/MeanQuantities.png "Mean Quantities")
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/MeanQuantities.png">
+</p>
 
 ## Clustering 
 
