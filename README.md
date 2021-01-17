@@ -4,9 +4,11 @@ Source:  Dr Daqing Chen, Director: Public Analytics group. chend '@' lsbu.ac.uk,
 
 We will be using the numpy, pandas, scikit-learn, matplotlib and pickle libraries. 
 
-[1. Data Cleaning](https://github.com/gmoharram/ecommerce-clustering-project#data-cleaning)
-[2. Data Exploration](https://github.com/gmoharram/ecommerce-clustering-project#data-exploration)
-[3. Clustering](https://github.com/gmoharram/ecommerce-clustering-project#data-exploration)
+1. [Data Cleaning](https://github.com/gmoharram/ecommerce-clustering-project#data-cleaning)
+
+2. [Data Exploration](https://github.com/gmoharram/ecommerce-clustering-project#data-exploration)
+
+3. [Clustering](https://github.com/gmoharram/ecommerce-clustering-project#data-exploration)
 
 ## Data Cleaning
 
