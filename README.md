@@ -1,8 +1,12 @@
 # ecommerce-clustering-project
-This is a quick python clustering project that uses the Online Retail Data Set available at [UCI ML Rep.](https://archive.ics.uci.edu/ml/datasets/online+retail#)
+This is a python clustering project that uses the Online Retail Data Set available at [UCI ML Rep.](https://archive.ics.uci.edu/ml/datasets/online+retail#)
 Source:  Dr Daqing Chen, Director: Public Analytics group. chend '@' lsbu.ac.uk, School of Engineering, London South Bank University, London SE1 0AA, UK.
 
 We will be using the numpy, pandas, scikit-learn, matplotlib and pickle libraries. 
+
+[1. Data Cleaning](https://github.com/gmoharram/ecommerce-clustering-project#data-cleaning)
+[2. Data Exploration](https://github.com/gmoharram/ecommerce-clustering-project#data-exploration)
+[3. Clustering](https://github.com/gmoharram/ecommerce-clustering-project#data-exploration)
 
 ## Data Cleaning
 
