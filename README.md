@@ -60,6 +60,15 @@ The mean quantities usually purchased of each item gives us an idea of where to 
 
 ## Clustering 
 
-Using the obtained "baskets" dataframe we now convert this into a numpy array. Since we only care about invoices where several items are purchased together, we only keep invoices where at least three different items were purchased. This leaves us with 17504 rows. The numpy array is now ready to be fitted. We will now use the [KMeans](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans) Clustering Algorithm from the Scikit-learn module to ensure high efficieny. Take a look at my [Python-Clustering-Algorithm](https://github.com/gmoharram/Python-Clustering-Algorithm). For our purposes we will set k = 400. We shouldn't expect our data to consist of several (even hundreds) of perfect clusters. Instead we expect there to be a few well defined clusters with a meaningful amount of data points but otherwise unrelated purchases. To ensure that we find those few meaningful cluster centroids, the clustering algorithm will be run several times with several (highly likely) different randomly chosen initial centroids. The fit with the lowest clustering loss function value is automatically chosen. 
+The previous steps have left us with a 17504 by 3940 numpy array which is ready to be fitted. We will now use the [KMeans](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans) Clustering Algorithm from the Scikit-learn module to ensure high efficieny. For a basic implementation in python take a look at my [Python-Clustering-Algorithm](https://github.com/gmoharram/Python-Clustering-Algorithm). We shouldn't expect our data to consist of several (even hundreds) of perfect clusters. Instead we expect there to be a few well defined clusters with a meaningful amount of data points but otherwise unrelated purchases. To ensure that we find those few meaningful cluster centroids for any given k, the clustering algorithm is run several times with different initial centroids. The fit with the lowest clustering loss function value is automatically chosen. 
+
+#### Choosing K
+
+However, there is still the issue of choosing an appropriate value for k. I've chosen to run the algorithm with incrementally higher values for k [clustering.py]() and then look at how many "meaningful" 
+clusters are found. I've conservatively defined "meaningful" to mean consisting of more than three data points. Below is a graph of the amount N of meaningful clusters generated at a given k-value along with the mean size s of those clusters. Finally, the rest of the analysis is performed with the k-value with the greatest Ns value. 
+
+<p align="center">
+  <img width="450" height="350" src="">
+</p>
 
 
