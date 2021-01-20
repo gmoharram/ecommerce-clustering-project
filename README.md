@@ -65,7 +65,7 @@ The previous steps have left us with a 17504 by 3940 numpy array which is ready 
 #### Choosing K
 
 However, there is still the issue of choosing an appropriate value for k. I've chosen to run the algorithm with incrementally higher values for k [clustering.py]() and then look at how many "meaningful" 
-clusters are found. I've conservatively defined "meaningful" to mean consisting of more than three data points. Below is a graph of the amount N of meaningful clusters generated at a given k-value along with the mean size s of those clusters. Finally, the rest of the analysis is performed with the k-value with the greatest Ns value. 
+clusters are found. I've conservatively defined "meaningful" to mean consisting of more than three data points. Below is a graph of the amount N of meaningful clusters generated at a given k-value along with the mean size s of those clusters. Finally, the rest of the analysis is performed with the k-value with the greatest Ns value  (or the greatest amount of datapoins assigned to meaningful clusters). 
 
 <p align="center">
   <img width="450" height="350" src="">
