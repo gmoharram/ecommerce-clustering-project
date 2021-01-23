@@ -64,11 +64,10 @@ The previous steps have left us with a 17504 by 3940 numpy array which is ready 
 
 #### Choosing K
 
-However, there is still the issue of choosing an appropriate value for k. I've chosen to run the algorithm with incrementally higher values for k [clustering.py]() and then look at how many "meaningful" 
-clusters are found. I've conservatively defined "meaningful" to mean consisting of more than three data points. Below is a graph of the amount N of meaningful clusters generated at a given k-value along with the mean size S of those clusters. Finally, the rest of the analysis is performed with the k-value with the greatest NS value  (or the greatest amount of datapoins assigned to meaningful clusters). 
+However, there is still the issue of choosing an appropriate value for k. I've chosen to run the algorithm with incrementally higher values for k [initialClustering.py]() and then look at how many "meaningful" 
+clusters are found. I've conservatively defined "meaningful" to mean consisting of more than three data points. Below is a graph of the amount N of meaningful clusters generated at a given k-value along with the mean size S of those clusters. Finally, the rest of the analysis is performed with the k-value with the greatest NS value  (or the greatest amount of datapoins assigned to meaningful clusters). For all k-values there was one centroid where most datapoints (thousands) were clustered. This is just the average of all data points that weren't succesfully assigned to a cluster and could mean a lot of one-element clusters that are presumably close to zero (a small-volume/ one-item purchase for example). I've left this one out of my meaningful clusters calculations. While there might be information hidden in that cluster, this can be minimized by choosing an adequate k-value and performing the clustering with many initial centroids. The comparison is performed by [inititalClusteringKComparison.py](). 
 
 <p align="center">
-  <img width="450" height="350" src="">
+  <img width="400" height="300" src="https://github.com/gmoharram/">
+  <img width="400" height="300" src="https://github.com/gmoharram/">
 </p>
-
-
