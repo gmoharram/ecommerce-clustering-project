@@ -8,7 +8,7 @@ We will be using the numpy, pandas, scikit-learn, matplotlib and pickle librarie
 
 2. [Data Exploration](https://github.com/gmoharram/ecommerce-clustering-project#data-exploration)
 
-3. [Clustering](https://github.com/gmoharram/ecommerce-clustering-project#data-exploration)
+3. [Clustering](https://github.com/gmoharram/ecommerce-clustering-project#clustering)
 
 ## Data Cleaning
 
