@@ -71,3 +71,13 @@ clusters are found. I've conservatively defined "meaningful" to mean consisting 
   <img width="400" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/AmountClustersNmeanSizeS.png">
   <img width="400" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/NSvalues.png">
 </p>
+
+As we can see on the left graph increasing the centroid number k continuously (fluctuations are due to imperfect clustering) increases the amount of clusters with more than 3 data points. However, we can also see that the mean size of those clusters is continuously decreasing. This is a clear indication that the information gained by increasing k is diminishing. One the right graph, where the total data points "meaningfully" clustered at a given k is shown, this is confirmed. Additionally, there could be the case where initially bigger clusters are broken down further. While this is the intention to some extent, there is a point at which that becomes excessive, since some variation withing a cluster is essential. In hindsight, I would recommend setting the meaningful cluster threshold considerably higher than 4 given the size of our data set. This would cause the N-graph to plateau considerably faster and we might possibly see it decrease at the picked out k-values. I also recommend performing the initial clusterings in phases since it does take some time. 
+
+Finally, we'll look at the difference in the total data points meaningfully clustered (derivative of the NS-function). 
+
+<p align="center">
+  <img width="450" height="350" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/MarginalDataPoints.png">
+</p>
+
+Again, the flucuations (negative changes) are due to imperfect clustering. Ultimately, we pick k = 1350. 
