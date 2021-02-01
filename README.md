@@ -1,4 +1,4 @@
-# ecommerce-clustering-project
+# e-commerce clustering project
 This is a python clustering project that uses the Online Retail Data Set available at [UCI ML Rep.](https://archive.ics.uci.edu/ml/datasets/online+retail#)
 Source:  Dr Daqing Chen, Director: Public Analytics group. chend '@' lsbu.ac.uk, School of Engineering, London South Bank University, London SE1 0AA, UK.
 
@@ -81,3 +81,7 @@ Finally, we'll look at the difference in the total data points meaningfully clus
 </p>
 
 Again, the flucuations (negative changes) are due to imperfect clustering. Ultimately, we pick k = 1350. 
+
+#### Clustering with k = 1350
+
+After running the k-means clustering algorithm with k = 1350 we get an average cluster size of 3.19 excluding the biggest cluster with the "leftover" data points. This is not surprising as 1249/1350 clusters contain less than 4 data points. 
