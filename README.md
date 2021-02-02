@@ -84,4 +84,4 @@ Again, the flucuations (negative changes) are due to imperfect clustering. Ultim
 
 #### Clustering with k = 1350
 
-After running the k-means clustering algorithm with k = 1350 we get an average cluster size of 3.19 excluding the biggest cluster with the "leftover" data points. This is not surprising as 1249/1350 clusters contain less than 4 data points. 
+After running the k-means clustering algorithm with k = 1350 we get an average cluster size of 3.19 excluding the biggest cluster with the "leftover" data points. This is not surprising as 1249/1350 clusters contain less than 4 data points. For comparison clustering with k = 100 gives us 87 custers that contain less than 4 data points. So even though a big percentage of the clusters offer little information, choosing a higher k-value allows us to capture more information from our dataset as a whole. 
