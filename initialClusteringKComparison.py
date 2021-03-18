@@ -12,26 +12,27 @@ plt.style.use('ggplot') #choose plot style
 
 #Open results from kMeans clustering for k= 400,780,20 to compare in dictionary
 
-d = {} 
+d_amounts = {} 
+d_wss = {}
 
-with open('pckl_variables/kMeans_amounts_start_stop_step.pckl' ,'rb') as f:
-    d = pickle.load(f)
+with open('pckl_variables/kMeans_amounts_wss_start_stop_step.pckl' ,'rb') as f:
+    d_amounts, d_wss = pickle.load(f)
     f.close()
 
 
 #Looked at values for k
-k = list(d.keys())
+k = list(d_amounts.keys())
 
 #Obtained amount of meaningful clusters N for each k
 clusters_N = []
 for i in k:
-    clusters_N.append(d[i].size)
+    clusters_N.append(d_amounts[i].size)
 
 #Mean meaningful cluster size for each k
 mean_size = []
 iteration = 0
 for i in k:
-    mean = (d[i].sum() - d[i].max())/(clusters_N[iteration] - 1)  #Not counting cluster with majority of datapoints
+    mean = (d_amounts[i].sum() - d_amounts[i].max())/(clusters_N[iteration] - 1)  #Not counting cluster with majority of datapoints
     mean_size.append(mean) 
     iteration += 1
     
@@ -43,7 +44,7 @@ for i in range(len(mean_size)):
 #Calculate what fraction of the k centroids are surrounded by meaningful clusters for each k
 fraction_meaningful = []
 for i in k:
-    fraction_meaningful.append(d[i].size / i)
+    fraction_meaningful.append(d_amounts[i].size / i)
     
 #Calculate marginal increase in cluster amounts 
 marginal_amounts = []
@@ -52,7 +53,7 @@ for i in k:
         prev = i
         marginal_amounts.append(0)
     else:
-        marginal_amounts.append((d[i].size - d[prev].size)/(i - prev))
+        marginal_amounts.append((d_amounts[i].size - d_amounts[prev].size)/(i - prev))
         prev = i
         
 #Calculate marignal increase in datapoints meaningfully clustered (NS)        
@@ -68,6 +69,21 @@ with open('pckl_variables/k_N_S_NS.pckl', 'wb') as f:
     pickle.dump([k, clusters_N, mean_size, mean_N_multiplied], f)
     f.close()
     
+#Calculate change in wss value
+wss_change = {}
+kstart = list(d_wss.keys())[0]
+kstep  = 50
+kstop = list(d_wss.keys())[-1]
+for i in range(kstart,kstop,kstep):
+    x = i + kstep/2
+    change = (d_wss[i + kstep] - d_wss[i])/kstep
+    wss_change[x] = change
+    
+    
+    
+    
+    
+
 figA, ax1 = plt.subplots()
 
 color = 'tab:blue'
@@ -100,7 +116,25 @@ ax4.set_ylabel('Fraction F')
 ax4.set_xlabel('K-value')
 
 figD,ax5 = plt.subplots()
-ax5.plot(k, marginal_NS)
+ax5.plot(k, abs(marginal_NS))
 ax5.set_title('Marginal Change of Meaningfully Clustered Data Points')
 ax5.set_ylabel('Change C')
 ax5.set_xlabel('K-value')
+
+
+#Plot obtained wss-values
+figE,ax6 = plt.subplots()
+ax6.plot(list(d_wss.keys()), list(d_wss.values()))
+ax6.set_title('Within-Cluster-Sum of Squared Errors (WSS) at different k-values')
+ax6.set_ylabel('WSS')
+ax6.set_xlabel('k')
+
+#Plot change in wss-values
+fig,ax = plt.subplots()
+ax.scatter(list(wss_change.keys()), list(wss_change.values()))
+ax.set_title('Change in WSS at different k-values')
+ax.set_ylabel('Change in WSS')
+ax.set_ylim([-1.3 ,0.1])
+ax.set_xlabel('k')
+
+

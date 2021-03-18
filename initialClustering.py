@@ -2,7 +2,7 @@ import numpy as np
 import pickle
 
 from NormalizeMatrixColumns import normalizeColumns 
-
+from wss import calculate_wss
 
 #Using Scikit-learn
 from sklearn.cluster import KMeans
@@ -25,12 +25,14 @@ X = X[Y.sum(1) >= 3] #only consider purchases with at least 3 different items
 
 
 #Dictionary to store amount of meaningful clusters and their sizes for each k
-d = {}
+d_amounts = {}
+#Dictiionary to store Within-Cluster-Sum of Squared Errors (WSS) for each k
+d_wss = {}
 
 #what k-values to look at
 k_start = 700
 k_step = 20
-steps = 20
+steps = 5
 
 # perform clustering with different number of centroids k
 for i in range(steps):
@@ -50,12 +52,19 @@ for i in range(steps):
     
    #Only look at Clusters with at least 3 data points
    cluster_amounts = amounts[amounts > 3] 
+   
    #append to dictionary
-   d[k] = cluster_amounts
+   d_amounts[k] = cluster_amounts
+   
+   #Save wss at k
+   d_wss[k] = calculate_wss(X, centroids, labels)
+   
+   #Keep track of progress
+   print("{0} clustering done!".format(k))
     
 #Save cluster amount results for this k-value for comparison 
-with open('pckl_variables/kMeans_amounts_{0}_{1}_{2}_better.pckl'.format(k_start, k, k_step), 'wb') as f:
-    pickle.dump(d, f)
+with open('pckl_variables/kMeans_amounts_wss_{0}_{1}_{2}.pckl'.format(k_start, k, k_step), 'wb') as f:
+    pickle.dump(d_amounts, d_wss, f)
     f.close()
         
     
