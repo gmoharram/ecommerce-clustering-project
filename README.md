@@ -64,8 +64,11 @@ The previous steps have left us with a 17504 by 3940 numpy array which is ready 
 
 ### Choosing K
 
-However, there is still the issue of choosing an appropriate value for k. I've chosen to run the algorithm with incrementally higher values for k [initialClustering.py](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/initialClustering.py) and then look at how many "meaningful" 
-clusters are found. I've conservatively defined "meaningful" to mean consisting of more than three data points. Below is a graph of the amount N of meaningful clusters generated at a given k-value along with the mean size S of those clusters. Finally, the rest of the analysis is performed with the k-value with the greatest NS value  (or the greatest amount of datapoins assigned to meaningful clusters). For all k-values there was one centroid where most datapoints (thousands) were clustered. This is just the average of all data points that weren't succesfully assigned to a cluster and could mean a lot of one-element clusters that are presumably close to zero (a small-volume/ one-item purchase for example). I've left this one out of my meaningful clusters calculations. While there might be information hidden in that cluster, this can be minimized by choosing an adequate k-value and performing the clustering with many initial centroids. The comparison is performed by [inititalClusteringKComparison.py](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/initialClusteringKComparison.py). 
+However, there is still the issue of choosing an appropriate value for k. I've chosen to run the algorithm with incrementally higher values for k [initialClustering.py](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/initialClustering.py) and calculated a few metrics to guide that decision. The comparison is performed by [inititalClusteringKComparison.py](https://github.com/gmoharram/ecommerce-clustering-project/blob/main/initialClusteringKComparison.py). 
+
+#### Meaningful Clusters
+
+First, I looked at how many "meaningful" clusters are found. I've conservatively defined "meaningful" to mean consisting of more than three data points. Below is a graph of the amount N of meaningful clusters generated at a given k-value along with the mean size S of those clusters. Finally, the rest of the analysis is performed with the k-value with the greatest NS value  (or the greatest amount of datapoins assigned to meaningful clusters). For all k-values there was one centroid where most datapoints (thousands) were clustered. This is just the average of all data points that weren't succesfully assigned to a cluster and could mean a lot of one-element clusters that are presumably close to zero (a small-volume/ one-item purchase for example). I've left this one out of my meaningful clusters calculations. While there might be information hidden in that cluster, this can be minimized by choosing an adequate k-value and performing the clustering with many initial centroids. 
 
 <p align="center">
   <img width="400" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/AmountClustersNmeanSizeS.png">
@@ -74,10 +77,20 @@ clusters are found. I've conservatively defined "meaningful" to mean consisting 
 
 As we can see on the left graph increasing the centroid number k continuously (fluctuations are due to imperfect clustering) increases the amount of clusters with more than 3 data points. However, we can also see that the mean size of those clusters is continuously decreasing. This is a clear indication that the information gained by increasing k is diminishing. One the right graph, where the total data points "meaningfully" clustered at a given k is shown, this is confirmed. Additionally, there could be the case where initially bigger clusters are broken down further. While this is the intention to some extent, there is a point at which that becomes excessive, since some variation withing a cluster is essential. In hindsight, I would recommend setting the meaningful cluster threshold considerably higher than 4 given the size of our data set. This would cause the N-graph to plateau considerably faster and we might possibly see it decrease at the picked out k-values. I also recommend performing the initial clusterings in phases since it does take some time. 
 
-Finally, we'll look at the difference in the total data points meaningfully clustered (derivative of the NS-function). Again, the flucuations (and negative changes) are due to imperfect clustering.
+Finally, I looked at the difference in the total data points meaningfully clustered (derivative of the NS-function). Again, the flucuations (and negative changes) are due to imperfect clustering.
 
 <p align="center">
   <img width="450" height="350" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/MarginalDataPoints.png">
+</p>
+
+#### WSS
+
+Next, I calculate the Within-Cluster-Sum of Squared Errors (WSS) for different values of k, and choose the k for which WSS becomes first starts to diminish. In the plot of WSS-versus-k, this is ideally visible as an elbow. In real cases, as in ours, the result is not as clear cut. However, combining the plot itself and an approximately calculated derivative at our selected k-values, we can gain insight into the k-value from which on we gain diminishing returns. 
+
+
+<p align="center">
+  <img width="400" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/WSS.png">
+  <img width="400" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/wssChangeScatter.png">
 </p>
 
 
