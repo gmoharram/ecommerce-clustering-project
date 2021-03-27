@@ -101,7 +101,7 @@ Next, I calculate the Within-Cluster-Sum of Squared Errors (WSS) for different v
 Based on the aforementioned analyses we perform the clustering with a k-value of 1600. Now it's time to look at the thereby obtained information. As shown above, the majority of datapoints cannot be meaningfully clustered. This is further confirmed by (part of) the cluster size distribution observed for k=1600.
 
 <p align="center">
-  <img width="450" height="350" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/sizeDistribution.png">
+  <img width="500" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/sizeDistribution.png">
 </p>
 
 
