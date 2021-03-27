@@ -104,4 +104,10 @@ Based on the aforementioned analyses we perform the clustering with a k-value of
   <img width="500" height="300" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/sizeDistribution.png">
 </p>
 
+Nonetheless, we get a non-neglible amount of clusters with meaningful sizes as depicted in the graph below. Those clusters can be further analyzed to extract possibly valuable insights. 
+
+<p align="center">
+  <img width="500" height="250" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/greaterThan.png">
+</p>
+
 
