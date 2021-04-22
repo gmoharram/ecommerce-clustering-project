@@ -118,7 +118,7 @@ Now its time to look at the obtained information. We will look at an examplary c
 </p>
 
 <p align="center">
-  <img width="300" height="1000" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/Basket_28_262_table.png">
+  <img width="500" height="800" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/Basket_28_262_table.png">
 </p>
 
 
