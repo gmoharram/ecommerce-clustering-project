@@ -111,3 +111,15 @@ Nonetheless, we get a non-neglible amount of clusters with meaningful sizes as d
 </p>
 
 
+Now its time to look at the obtained information. We will look at an examplary centroid ("basket") with a cluster size of 262. This basket contains 28 items which can be grouped in a few categories. Most prominently, we observe party decorations and more specifically christmas decorations bought together. We can also see garden items, kids items and a few home decor items. The Item desciptions together with a visual representation of the basket is shown below. 
+
+<p align="center">
+  <img width="500" height="500" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/Basket_28_262.png">
+</p>
+
+<p align="center">
+  <img width="300" height="1000" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/Basket_28_262_table.png">
+</p>
+
+
+
