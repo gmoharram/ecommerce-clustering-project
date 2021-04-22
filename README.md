@@ -116,7 +116,7 @@ Now its time to look at the obtained information. We will look at an examplary c
 
 <p align="center">
   <img width="500" height="500" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/Basket_28_262.png">
-  <img width="400" height="600" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/Basket_28_262_table.png">
+  <img width="400" height="550" src="https://github.com/gmoharram/ecommerce-clustering-project/blob/main/Basket_28_262_table.png">
 </p>
 
 
